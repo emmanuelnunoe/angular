@@ -1,0 +1,16 @@
+<p>matematico works!</p>
+
+Numero 1: <input type="number"  [(ngModel)]="num1" (keyup)="calcular()" /><br>
+Numero 2: <input type="number"  [(ngModel)]="num2" (keyup)="calcular()" /><br>
+
+
+Suma          <input type="radio" id="suma" value="0"  name="option" [(ngModel)]="op" checked (change)="calcular()"/><br>
+Resta          <input type="radio" id="resta" value="1"  name="option" [(ngModel)]="op" (change)="calcular()"/><br>
+Multiplicacion   <input type="radio" id="multiplica" value="2"  name="option" [(ngModel)]="op"  (change)="calcular()"/><br>
+Divide            <input type="radio" id="divide" value="3"  name="option" [(ngModel)]="op"  (change)="calcular()"/><br>
+<br><br>
+<button type="submit" value="calcula" (click)="calcular()" >calcular</button>
+<div>
+ Resultado = {{resultado}}
+</div>
+<app-matematico-result (limpiaCajas)="limpiaCajasEjecutado()" [resultadoAmostrar] ="resultado"></app-matematico-result>

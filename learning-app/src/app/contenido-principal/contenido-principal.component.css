@@ -1,0 +1,14 @@
+.seleccionado{
+  background-color: crimson;
+  color: aliceblue;
+}
+
+
+p:hover{
+  background-color: crimson;
+}
+
+
+.otro{
+  font-weight: bolder;
+}

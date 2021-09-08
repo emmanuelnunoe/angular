@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="container">
+        <div class="card">
+            <h3>Bienvenido</h3>
+            <!-- Interpolacion de variables -->
+            <p>{{ dato1 }}</p>
+            <p> learning app es mi primera app en Angular , <br> aqui agregare mis avances aprendiendo angular</p>
+            <!-- Alternativa a interpolacion de variables, tambien sirve para mostrar valores de una consulta, propiedades de la clases, etc  -->
+          <p [innerText]="dato1"></p>
+          <p [class.seleccionado]="estaSeleccionado"> Este texto puede o no estar seleccionado</p>
+          <p [class]="currentClasses">Multiples clases definidas a este parrafo</p>
+          <!-- NGmodel permite ligar un atributo del compoenente.ts, permitiendo modificarla -->
+          <!-- (change)="funcion()"  enlaza el elemento HTML a una funcion del componente.ts  para ejecutarla cuando exista un cambio enel DOM -->
+          seleccionado: <input type="checkbox" id="seleccionadoONo" [(ngModel)]="estaSeleccionado" (change)="checkboxChanged()" checked/>
+          Nombre : <input type="text" id="nombre" [(ngModel)]="nombre"  (change)="nameChanged()" />
+        </div>
+    </div>
+</div>
+
+

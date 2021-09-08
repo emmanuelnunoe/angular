@@ -1,0 +1,13 @@
+<p>your products!</p>
+<input type="submit" value="Limpiar textBoxes" (click)="limpiaCajas.emit()"/>
+<input type="button" (click)="showProducts()" value="Display Products"/>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Price</td>
+  </tr>
+  <tr *ngFor= "let product of productsToShow">
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+  </tr>
+</table>

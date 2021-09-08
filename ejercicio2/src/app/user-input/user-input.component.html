@@ -1,0 +1,10 @@
+<h1>Add products!</h1>
+Product: <input type="text"  id="newProduct" name="name" [(ngModel)]="name" ><br/>
+Price: <input type="text"  id="priceProduct" name="price" [(ngModel)]="price"  ><br/>
+<button (click)="addProduct()" value="add" >Add</button>
+
+<div>
+  product = {{name}}
+  price = {{price}}
+ </div>
+ <app-products-list (limpiaCajas)="limpiaCajasEjecutado()" [productsToShow]="productsList"></app-products-list>
