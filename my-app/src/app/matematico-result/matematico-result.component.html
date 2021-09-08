@@ -1,3 +1,6 @@
-<p>matematico-result works!</p>
-<span> recibido del componente matematico {{resultadoAmostrar}}</span>
-<input type="submit" value="Limpiar textBoxes" (click)="limpiaCajas.emit()"/>
+<span *ngIf="resultadoAmostrar != 0">
+  Resultado recibido del componente matematico:
+  {{ resultadoAmostrar }}</span
+>
+<br />
+<input type="submit" value="Limpiar textBoxes" (click)="limpiaCajas.emit()" />

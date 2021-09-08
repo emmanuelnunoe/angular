@@ -1,16 +1,46 @@
 <p>matematico works!</p>
 
-Numero 1: <input type="number"  [(ngModel)]="num1" (keyup)="calcular()" /><br>
-Numero 2: <input type="number"  [(ngModel)]="num2" (keyup)="calcular()" /><br>
+<p>{{ "hello pipe" | uppercase }}</p>
 
+<ng-template #loggedOn>
+  <p>
+    El usuario {{ username | slice: 0:1 | uppercase
+    }}{{ username | slice: 1 | lowercase }} inicio sesion correctamente
+  </p>
+  <p>Fecha de hoy: {{ today | date: "shortDate" }}</p>
+</ng-template>
 
-Suma          <input type="radio" id="suma" value="0"  name="option" [(ngModel)]="op" checked (change)="calcular()"/><br>
-Resta          <input type="radio" id="resta" value="1"  name="option" [(ngModel)]="op" (change)="calcular()"/><br>
-Multiplicacion   <input type="radio" id="multiplica" value="2"  name="option" [(ngModel)]="op"  (change)="calcular()"/><br>
-Divide            <input type="radio" id="divide" value="3"  name="option" [(ngModel)]="op"  (change)="calcular()"/><br>
-<br><br>
-<button type="submit" value="calcula" (click)="calcular()" >calcular</button>
-<div>
- Resultado = {{resultado}}
+<div *ngFor="let op of opList; index as myIndex">
+  {{ op }}
+  <input
+    type="radio"
+    id="operationId-{{ myIndex }}"
+    value="{{ myIndex }}"
+    name="option"
+    [(ngModel)]="operation"
+    checked
+    (change)="calcular()"
+  /><br />
 </div>
-<app-matematico-result (limpiaCajas)="limpiaCajasEjecutado()" [resultadoAmostrar] ="resultado"></app-matematico-result>
+
+<br />
+<br />
+Numero 1:
+<input type="number" [(ngModel)]="num1" (keyup)="calcular()" /><br />
+Numero 2: <input type="number" [(ngModel)]="num2" (keyup)="calcular()" /><br />
+
+<!-- Suma
+<input type="radio" id="suma" value="0" name="option" [(ngModel)]="operation" checked (change)="calcular()" /><br />
+Resta
+<input type="radio" id="resta" value="1" name="option" [(ngModel)]="operation" (change)="calcular()" /><br />
+Multiplicacion
+<input type="radio" id="multiplica" value="2" name="option" [(ngModel)]="operation" (change)="calcular()" /><br />
+Divide
+<input type="radio" id="divide" value="3" name="option" [(ngModel)]="operation" (change)="calcular()" /><br /> -->
+<br /><br />
+<button type="submit" value="calcula" (click)="calcular()">calcular</button>
+<div>Resultado = {{ resultado | currency }}</div>
+<app-matematico-result
+  (limpiaCajas)="limpiaCajasEjecutado()"
+  [resultadoAmostrar]="resultado"
+></app-matematico-result>

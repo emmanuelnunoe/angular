@@ -1,0 +1,20 @@
+<p>alumnos-lista works!</p>
+<input
+  type="radio"
+  id="listaId"
+  name="lista"
+  [(ngModel)]="opcion"
+  value="lista"
+/>
+<input
+  type="radio"
+  id="tablaId"
+  name="tabla"
+  [(ngModel)]="opcion"
+  value="tabla"
+/>
+
+< *ngIf="option == tabla">
+<div *ngFor="let alumno of listaAlumnos"
+
+</div>
