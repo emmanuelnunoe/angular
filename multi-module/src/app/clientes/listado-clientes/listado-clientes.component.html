@@ -1,1 +1,7 @@
 <p>listado-clientes works!</p>
+
+<ol>
+  <li *ngFor="let cliente of Clientes">
+    {{ cliente.name }} {{ cliente.email }}
+  </li>
+</ol>

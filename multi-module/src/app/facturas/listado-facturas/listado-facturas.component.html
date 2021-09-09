@@ -1,1 +1,27 @@
 <p>listado-facturas works!</p>
+
+<button (click)="nuevaFactura()">Nueva Factura</button>
+
+<ol>
+  <li *ngFor="let factura of Facturas">
+    Id:{{ factura.Id }} - Cliente: {{ factura.cliente }} Fecha:
+    {{ factura.fecha }} - Monto : {{ factura.monto | currency }}
+  </li>
+</ol>
+
+<input
+  type="number"
+  id="id"
+  placeholder="ingresa el id de la factura"
+  [(ngModel)]="buscarId"
+/>
+<br />
+<br />
+<output *ngIf="facturaResult != null">
+  Id:{{ facturaResult.Id }} - cliente: {{ facturaResult.cliente }} - fecha:
+  {{ facturaResult.fecha }} - monto: {{ facturaResult.monto }}
+</output>
+<br />
+<br />
+
+<button (click)="buscarFactura()">Buscar Factura</button>
