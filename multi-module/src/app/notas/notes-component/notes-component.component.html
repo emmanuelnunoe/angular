@@ -1,0 +1,40 @@
+<p>notes-component works!</p>
+<p>Nueva Nota</p>
+<br />
+
+<!-- User Input -->
+Titulo:
+<input
+  type="text"
+  [(ngModel)]="title"
+  id="titleId"
+  placeholder="ingresa el titulo"
+/><br />
+Contenido:
+<input
+  type="text"
+  [(ngModel)]="content"
+  id="contentId"
+  placeholder="ingresa el contenido"
+/><br />
+
+<!-- Edit or update Note -->
+<div *ngIf="flag == false; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock
+  ><button (click)="addNote()">Agregar</button>
+</ng-template>
+<ng-template #elseBlock>
+  <button (click)="updateNote()">Update</button>
+</ng-template>
+
+<!-- Show Notes -->
+<br /><br />
+<P>Notas recibidas {{ notes.length }}</P>
+<ul>
+  <li *ngFor="let note of notes">
+    Id : {{ note._id }} - Title: {{ note.title }} - Content:
+    {{ note.content }} --<button (click)="editNote(note._id)">Edit</button>
+    ---
+    <button (click)="deleteNote(note._id)">Delete</button>
+  </li>
+</ul>
